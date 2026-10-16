@@ -1,0 +1,45 @@
+{
+  "name": "real_diary",
+  "display_name": "真实日记",
+  "version": "1.0.0",
+  "description": "把「当天真实发生过的事」写成日记。采集记忆碎片（上下文归档摘要 / 每日短期记忆 / 记忆条目索引 / 状态阶段轨迹 / 时间事实）落到 data，跨天用指定模型写成第一人称日记，输出到你指定的目录。生成是幂等的：启动时与每天 02:00 各检查一次「昨天的日记写了没」，没写就立刻补；崩溃跨了多天时，时间窗之外的残缺素材一律丢弃、绝不虚构。日记落盘成功后才删掉自己抓来的素材碎片——booku 记忆库与其它插件的任何数据一个字不动。",
+  "author": "Aemeath",
+  "license": "MIT",
+  "dependencies": {
+    "plugins": [],
+    "components": []
+  },
+  "include": [
+    {
+      "component_type": "event_handler",
+      "component_name": "archive_sink",
+      "dependencies": [],
+      "enabled": true
+    },
+    {
+      "component_type": "event_handler",
+      "component_name": "phase_watcher",
+      "dependencies": [],
+      "enabled": true
+    },
+    {
+      "component_type": "command",
+      "component_name": "日记",
+      "dependencies": [],
+      "enabled": true
+    }
+  ],
+  "entry_point": "plugin.py",
+  "api_version": {
+    "command_api": "1.0.0",
+    "config_api": "1.0.0",
+    "event_api": "1.0.0",
+    "llm_api": "1.0.0",
+    "log_api": "1.0.0",
+    "permission_api": "1.0.0",
+    "service_api": "1.0.0",
+    "storage_api": "1.0.0"
+  },
+  "python_dependencies": [],
+  "dependencies_required": false
+}
